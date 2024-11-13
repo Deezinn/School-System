@@ -1,8 +1,8 @@
 from Aluno import *  
 
 class Turma(Aluno):
-    def __init__(self, nome=None, idade=None, email=None, cpf=None):
-        super().__init__(nome, idade, email, cpf)
+    def __init__(self, nome=None, idade=None, email=None, cpf=None,nota=None):
+        super().__init__(nome, idade, email, cpf,nota)
         self.alunos = {}
 
     def mostrar_aluno(self):
