@@ -2,36 +2,37 @@ from Turma import *
 
 class Main:
     def __init__(self):
-        pass  
-    
-    def escolha(self):
-        print('Digite [1] para mostrar todos os alunos.')       
-        print('Digite [2] para adicionar aluno.') 
-        print('Digite [3] para modificar algum dado do aluno.')
-        print('Digite [4] para deletar algum aluno.')        
-        return input("Escolha uma opção: ")
+        self.turma = Turma()  
     
     def execute(self):
-        turma = Turma()
         while True:
-            valor = self.escolha() 
-            match valor:
-                case '1':
-                    turma.mostrar_aluno()
-                case '2':
-                    turma.adicionar_aluno()
-                case '3':
-                    turma.modificar_aluno()
-                case '4':
-                    turma.remover_aluno()
-                case _:
-                    print("Opção inválida.")
+            print("\n1. Adicionar Aluno")
+            print("2. Mostrar Alunos")
+            print("3. Adicionar Nota")
+            print("4. Remover Aluno")
+            print("5. Sair")
             
-            continuar = input("Deseja continuar? (s/n): ").strip().lower()
-            if continuar != 's':
-                print("Encerrando o programa.")
+            opcao = input("Escolha uma opção: ").strip()
+            
+            if opcao == "1":
+                self.turma.adicionar_aluno()
+            elif opcao == "2":
+                alunos = self.turma.mostrar_alunos()
+                if alunos:
+                    for aluno in alunos:
+                        print(aluno)
+                else:
+                    print("Não há alunos na turma.")
+            elif opcao == "3":
+                self.turma.adicionar_nota()
+            elif opcao == "4":
+                self.turma.remover_aluno()
+            elif opcao == "5":
+                print("Saindo...")
                 break
-
+            else:
+                print("Opção inválida! Tente novamente.")
+    
 if __name__ == "__main__":
-    main = Main()
-    main.execute()
+    main = Main()  
+    main.execute()  
