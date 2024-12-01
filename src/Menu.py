@@ -1,27 +1,36 @@
-# from Turma import *
+from Turma import *
 
-# class Menu:
-#      def __init__(self):
-          
-#         def escolha(self):
-#             print('Digite [1] para mostrar todos os alunos.')       
-#             print('Digite [2] para adicionar aluno.') 
-#             print('Digite [3] para modificar algum dado do aluno.')
-#             print('Digite [4] para deletar algum aluno.')        
-#             return input("Escolha uma opção: ")
-        
-#         def execute(self):
-#             turma = Turma()
-#             while True:
-#                 valor = self.escolha() 
-#                 match valor:
-#                     case '1':
-#                         turma.mostrar_alunos()
-#                     case _:
-#                         print("Opção inválida.")
+class Menu:
+    def __init__(self) -> None:
+        self.turma = Turma()
+       
+    def executarMenu(self):
+        while True:
+            print("\n1. Adicionar Aluno")
+            print("2. Mostrar Alunos")
+            print("3. Adicionar Nota")
+            print("4. Remover Aluno")
+            print("5. Sair")
+
                 
-#                 continuar = input("Deseja continuar? (s/n): ").strip().lower()
-#                 if continuar != 's':
-#                     print("Encerrando o programa.")
-#                     break
-
+            opcao = input("Escolha uma opção: ").strip()
+            
+            if opcao == "1":
+                self.turma.adicionar_aluno()
+            elif opcao == "2":
+                alunos = self.turma.mostrar_alunos()
+                if alunos:
+                    for aluno in alunos:
+                        print(aluno)
+                else:
+                    print("Não há alunos na turma.")
+            elif opcao == "3":
+                self.turma.adicionar_nota()
+            elif opcao == "4":
+                self.turma.remover_aluno()
+            elif opcao == "5":
+                print("Saindo...")
+                break
+            else:
+                print("Opção inválida! Tente novamente.")
+        
