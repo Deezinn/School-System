@@ -5,7 +5,6 @@ class Aluno(Pessoa):
         super().__init__(nome)
         self._nota = None  
 
-    
     @property
     def mostrar_nota(self):
         return self._nota 
